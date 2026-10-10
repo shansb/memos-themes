@@ -1,0 +1,13 @@
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 抓取的前端产物（排查用，不入库）
+app.js
+page.css
+*.prod.css

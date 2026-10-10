@@ -1,0 +1,147 @@
+/* ============================================================
+   Memos 实例主题 · Catppuccin Latte / Mocha
+   适配 Memos v0.31+（Tailwind v4 + CSS 变量主题系统）
+   粘贴位置：设置 → 外观 → 实例范围 CSS
+   ------------------------------------------------------------
+   v0.31 的前端不再使用 .note-card / .sidebar 这类 class 名，
+   全部样式由 :root 上的 CSS 变量驱动，所以这里只覆盖变量 —— 
+   比猜 class 名可靠得多，且不会随前端改版失效。
+   用 :root:root 提升优先级，确保盖过主题注入的 :root 变量。
+   ============================================================ */
+
+/* ---------------- 浅色：Catppuccin Latte ---------------- */
+:root:root {
+  --background: #eff1f5;   /* base     页面底色 */
+  --foreground: #4c4f69;   /* text     正文 */
+
+  --card: #ffffff;         /* 卡片略提亮，与底色分层 */
+  --card-foreground: #4c4f69;
+
+  --popover: #ffffff;      /* 弹层/浮窗 */
+  --popover-foreground: #4c4f69;
+
+  --primary: #1e66f5;      /* blue     主色：按钮、选中项、链接 */
+  --primary-foreground: #ffffff;
+
+  --secondary: #e6e9ef;    /* mantle   次要按钮 */
+  --secondary-foreground: #4c4f69;
+
+  --muted: #e6e9ef;        /* 代码块、骨架屏、元信息底 */
+  --muted-foreground: #6c6f85;
+
+  --accent: #dce0e8;       /* crust    悬停态 */
+  --accent-foreground: #4c4f69;
+
+  --destructive: #d20f39;  /* red      删除/危险 */
+  --destructive-foreground: #ffffff;
+
+  --success: #40a02b;      /* green    成功 */
+  --success-foreground: #ffffff;
+
+  --warning: #df8e1d;      /* yellow   警告、搜索高亮 */
+  --warning-foreground: #4c4f69;
+
+  --border: #ccd0da;       /* surface0 描边 */
+  --input: #bcc0cc;        /* surface1 输入框描边 */
+  --ring: #1e66f5;         /* 聚焦环 */
+
+  --sidebar: #e6e9ef;      /* 侧栏比底色略深，形成层次 */
+  --sidebar-foreground: #5c5f77;
+  --sidebar-accent: #dce0e8;
+  --sidebar-accent-foreground: #4c4f69;
+
+  --radius: 0.65rem;       /* 圆角略放大，观感更柔和 */
+
+  /* 阴影改用暖中性色，比纯黑更贴合 Latte 的浅色调 */
+  --shadow-xs: 0 1px 2px rgb(76 79 105 / 0.04);
+  --shadow-sm: 0 1px 2px rgb(76 79 105 / 0.06), 0 1px 3px rgb(76 79 105 / 0.04);
+  --shadow:    0 1px 3px rgb(76 79 105 / 0.07), 0 1px 2px rgb(76 79 105 / 0.04);
+  --shadow-md: 0 2px 4px rgb(76 79 105 / 0.07), 0 4px 8px -2px rgb(76 79 105 / 0.06);
+  --shadow-lg: 0 4px 12px -2px rgb(76 79 105 / 0.09), 0 2px 6px -2px rgb(76 79 105 / 0.06);
+  --shadow-xl: 0 8px 24px -6px rgb(76 79 105 / 0.12), 0 4px 10px -4px rgb(76 79 105 / 0.07);
+  --shadow-float: 0 1px 2px rgb(76 79 105 / 0.05),
+                  0 8px 24px -6px rgb(76 79 105 / 0.10),
+                  0 24px 56px -16px rgb(76 79 105 / 0.12);
+}
+
+/* ---------------- 深色：Catppuccin Mocha ---------------- */
+/* 应用会把解析后的主题写进 <html style="color-scheme: dark">，
+   据此匹配即可，无需 @media —— 这样手动切「深色」和跟随系统都能正确命中。 */
+:root:root[style*="color-scheme: dark"] {
+  --background: #1e1e2e;   /* base     页面底色 */
+  --foreground: #cdd6f4;   /* text     正文 */
+
+  --card: #252537;         /* 在 base 与 surface0 之间取一档，分层但不刺眼 */
+  --card-foreground: #cdd6f4;
+
+  --popover: #313244;      /* surface0 */
+  --popover-foreground: #cdd6f4;
+
+  --primary: #89b4fa;      /* blue     深色下用亮蓝 */
+  --primary-foreground: #1e1e2e;
+
+  --secondary: #313244;    /* surface0 */
+  --secondary-foreground: #cdd6f4;
+
+  --muted: #313244;
+  --muted-foreground: #a6adc8;
+
+  --accent: #45475a;       /* surface1 悬停态 */
+  --accent-foreground: #cdd6f4;
+
+  --destructive: #f38ba8;  /* red */
+  --destructive-foreground: #1e1e2e;
+
+  --success: #a6e3a1;      /* green */
+  --success-foreground: #1e1e2e;
+
+  --warning: #f9e2af;      /* yellow */
+  --warning-foreground: #1e1e2e;
+
+  --border: #313244;       /* surface0 */
+  --input: #45475a;        /* surface1 */
+  --ring: #89b4fa;
+
+  --sidebar: #181825;      /* mantle 比底色更深，侧栏后退 */
+  --sidebar-foreground: #bac2de;
+  --sidebar-accent: #313244;
+  --sidebar-accent-foreground: #cdd6f4;
+
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.20);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.28), 0 1px 3px rgb(0 0 0 / 0.20);
+  --shadow:    0 1px 3px rgb(0 0 0 / 0.32), 0 1px 2px rgb(0 0 0 / 0.22);
+  --shadow-md: 0 2px 4px rgb(0 0 0 / 0.32), 0 4px 8px -2px rgb(0 0 0 / 0.26);
+  --shadow-lg: 0 4px 12px -2px rgb(0 0 0 / 0.38), 0 2px 6px -2px rgb(0 0 0 / 0.26);
+  --shadow-xl: 0 8px 24px -6px rgb(0 0 0 / 0.46), 0 4px 10px -4px rgb(0 0 0 / 0.30);
+  --shadow-float: 0 1px 2px rgb(0 0 0 / 0.30),
+                  0 8px 24px -6px rgb(0 0 0 / 0.42),
+                  0 24px 56px -16px rgb(0 0 0 / 0.50);
+}
+
+/* ---------------- 细节润色 ---------------- */
+
+/* body 兜底：应用把主题色作为 fallback 内联进了 `var(--background, …)`，
+   显式绑定变量可确保切换主题（或跟随系统）时底色/正文色即时跟变。 */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* 选中文字：用 lavender，浅深两套各自适配 */
+::selection {
+  background-color: #7287fd;
+  color: #ffffff;
+}
+:root:root[style*="color-scheme: dark"] ::selection {
+  background-color: #b4befe;
+  color: #1e1e2e;
+}
+
+/* 滚动条跟随调色板（应用默认用 --muted-foreground 混色，
+   这里换成主色系，视觉上更统一） */
+* {
+  scrollbar-color: rgb(108 111 133 / 0.45) transparent;
+}
+:root:root[style*="color-scheme: dark"] * {
+  scrollbar-color: rgb(166 173 200 / 0.40) transparent;
+}
